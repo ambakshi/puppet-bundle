@@ -1,7 +1,9 @@
+.PHONY: all vendor clean
+
 all: vendor
-	bundle exec rake $(MAKECMDGOALS)
 
 vendor: Gemfile
-	bundle install --path $@
+	bundle install --path $@ --binstubs bin
 
-
+clean:
+	rm -rf vendor bin
